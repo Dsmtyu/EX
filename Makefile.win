@@ -5,14 +5,14 @@ CPP      = g++.exe
 CC       = gcc.exe
 WINDRES  = windres.exe
 RES      = Imath_private.res
-OBJ      = demo/test.o $(RES)
-LINKOBJ  = demo/test.o $(RES)
+OBJ      =  $(RES)
+LINKOBJ  =  $(RES)
 LIBS     = -L"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib" -L"C:/Program Files (x86)/Dev-Cpp/MinGW64/mingw32/lib" -static-libgcc -m32
 INCS     = -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/include"
 CXXINCS  = -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/include"
 BIN      = Imath.exe
-CXXFLAGS = $(CXXINCS) -Ofast -m32 -std=c++17
-CFLAGS   = $(INCS) -Ofast -m32 -std=c++17
+CXXFLAGS = $(CXXINCS) -m32
+CFLAGS   = $(INCS) -m32
 RM       = rm.exe -f
 
 .PHONY: all all-before all-after clean clean-custom
@@ -24,9 +24,6 @@ clean: clean-custom
 
 $(BIN): $(OBJ)
 	$(CPP) $(LINKOBJ) -o $(BIN) $(LIBS)
-
-demo/test.o: demo/test.cpp
-	$(CPP) -c demo/test.cpp -o demo/test.o $(CXXFLAGS)
 
 Imath_private.res: Imath_private.rc 
 	$(WINDRES) -i Imath_private.rc -F pe-i386 --input-format=rc -o Imath_private.res -O coff 
