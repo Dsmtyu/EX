@@ -3,8 +3,8 @@
 #### 介绍
 提供各种数学函数，高精度，最大公约数等
 
-#### 软件架构
-
+#### 软件使用
+使用Dev-C++5.11, TDM-GCC10.3.0
 
 
 #### 安装教程
@@ -23,4 +23,3 @@
 3.  提交代码
 4.  新建 Pull Request
 
-Gitee请见: https://gitee.com/Albert-wuchenyu/Imath
