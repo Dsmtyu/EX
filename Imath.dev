@@ -14,11 +14,11 @@ CppCompiler=
 Linker=
 IsCpp=1
 Icon=
-ExeOutput=
+ExeOutput=test
 ObjectOutput=
 LogOutput=
 LogOutputEnabled=0
-OverrideOutput=0
+OverrideOutput=1
 OverrideOutputName=Imath.exe
 HostApplication=
 UseCustomMakefile=0
@@ -28,49 +28,39 @@ Folders=
 IncludeVersionInfo=1
 SupportXPThemes=0
 CompilerSet=0
-CompilerSettings=0000000100000000000000000
-UnitCount=1
+CompilerSettings=000000c100000000000000000
+UnitCount=2
 
 [VersionInfo]
 Major=1
 Minor=0
-Release=0
-Build=80
+Release=1
+Build=55
 LanguageID=1033
 CharsetID=1252
 CompanyName=
-FileVersion=1.0.0.80
-FileDescription=Imath, ÆæÆæ¹Ö¹ÖµÄÊýÑ§¿â(Developed using the Dev-C++ IDE)
-InternalName=Strang Math
-LegalCopyright=GNU GENERAL PUBLIC LICENSE
+FileVersion=1.0.1.55
+FileDescription=Imath - Developed using the Dev-C++ IDE
+InternalName=
+LegalCopyright=
 LegalTrademarks=
-OriginalFilename=Jmath
+OriginalFilename=
 ProductName=Imath
-ProductVersion=1.0.0.80
+ProductVersion=1.0.1.55
 AutoIncBuildNr=1
 SyncProduct=1
 
-[Unit4]
-FileName=Jmath.h
-CompileCpp=1
-Folder=
-Compile=1
-Link=1
-Priority=1000
-OverrideBuildCmd=0
-BuildCmd=
-
-[Unit3]
-FileName=sep.h
-CompileCpp=1
-Folder=
-Compile=1
-Link=1
-Priority=1000
-OverrideBuildCmd=0
-BuildCmd=
-
 [Unit1]
+FileName=main.cpp
+CompileCpp=1
+Folder=
+Compile=1
+Link=1
+Priority=1000
+OverrideBuildCmd=0
+BuildCmd=$(CPP) -c main.cpp -o main.o $(CXXFLAGS)
+
+[Unit2]
 FileName=Imath.h
 CompileCpp=1
 Folder=

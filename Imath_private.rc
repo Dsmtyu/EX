@@ -8,8 +8,8 @@
 // TO CHANGE VERSION INFORMATION, EDIT PROJECT OPTIONS...
 //
 1 VERSIONINFO
-FILEVERSION 1,0,0,37
-PRODUCTVERSION 1,0,0,37
+FILEVERSION 1,0,1,55
+PRODUCTVERSION 1,0,1,55
 FILETYPE VFT_APP
 {
   BLOCK "StringFileInfo"
@@ -17,14 +17,14 @@ FILETYPE VFT_APP
     BLOCK "040904E4"
     {
       VALUE "CompanyName", ""
-      VALUE "FileVersion", "1.0.0.37"
-      VALUE "FileDescription", "Imath, ÆæÆæ¹Ö¹ÖµÄÊýÑ§¿â(Developed using the Dev-C++ IDE)"
-      VALUE "InternalName", "Strang Math"
-      VALUE "LegalCopyright", "GNU GENERAL PUBLIC LICENSE"
+      VALUE "FileVersion", "1.0.1.55"
+      VALUE "FileDescription", "Imath - Developed using the Dev-C++ IDE"
+      VALUE "InternalName", ""
+      VALUE "LegalCopyright", ""
       VALUE "LegalTrademarks", ""
-      VALUE "OriginalFilename", "Jmath"
+      VALUE "OriginalFilename", ""
       VALUE "ProductName", "Imath"
-      VALUE "ProductVersion", "1.0.0.37"
+      VALUE "ProductVersion", "1.0.1.55"
     }
   }
   BLOCK "VarFileInfo"

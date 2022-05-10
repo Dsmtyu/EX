@@ -1,22 +1,34 @@
 #ifndef __IMATH_H__
 #define __IMATH_H__
+#define add add
+#define aver aver
+#define copyarry copyarray
+#define toint toint
+#define fac fac
+#define ilength ilength
+#define mul mul
+#define powh powh
+#define sub sub
+#define stoarry stoarry
+#define gcd gcd
+#define lcm lcm
+#define sizeofa sizeofa 
 
 #include <string.h>
-
 using namespace std;
 
 
 /* 字符转数字 */
-int ctoint(char& t) {
+int toint(char& t) {
 	return t - '0';
 }
 
 
 /* 字符串转数字 */
-int stoint(string& s) {
-	int i, tar = ctoint(s[0]), l = s.length();
+int toint(string& s) {
+	int i, tar = toint(s[0]), l = s.length();
 	for (i = 1; i < l; ++i) {
-		tar += i * 10 + ctoint(s[i]);
+		tar += i * 10 + toint(s[i]);
 	}
 	return tar;
 }
@@ -43,19 +55,28 @@ void aver(int *a, double ave, const int& m, const int& n = 0) {
 
 
 /* 获取整数长度 */
-int length(int& n) {
-	int cnt;
-	while(n != 0)
-        n /= 10, ++cnt;
-    return cnt;
+int ilength(int& n) {
+	int cnt = 0;
+	while (n != 0)
+		n /= 10, ++cnt;
+	return cnt;
+}
+
+
+/* 获取长整型长度 */
+long long ilength(long long& n) {
+	int cnt = 0;
+	while (n != 0)
+		n /= 10, ++cnt;
+	return cnt;
 }
 
 
 /* 字符串转数字数组 */
-void toarry(string& t, int a[], const int& m, const int& n = 0) {
+void stoarry(string& t, int a[], const int& m, const int& n = 0) {
 	int i;
 	for (i = n; i < m; ++i)
-		a[i] = ctoint(t[i]);
+		a[i] = toint(t[i]);
 	return;
 }
 
@@ -87,10 +108,10 @@ string add(string& x, string& y) {
 
 	/* 获取字符转为数字 */
 	for (i = n; i < la; ++i)
-		a[la - i] = ctoint(x[i]);
+		a[la - i] = toint(x[i]);
 
 	for (i = n; i < lb; ++i)
-		b[lb - i] = ctoint(y[i]);
+		b[lb - i] = toint(y[i]);
 
 	i = 0;
 	while (lc <= la || lc <= lb) {
@@ -139,17 +160,17 @@ string sub(string& s1, string& s2) {
 	}
 
 	/* 正负数判断 */
-	if (la < lb || (la == lb && ctoint(x[0]) < ctoint(y[0]))) {
+	if (la < lb || (la == lb && toint(x[0]) < toint(y[0]))) {
 		swap(x, y);			// 交换
 		tar.push_back('-');	// 负数
 	}
 
 	/* 获取字符转为数字 */
 	for (i = 0; i < la; ++i)
-		a[la - i] = ctoint(x[i]);
+		a[la - i] = toint(x[i]);
 
 	for (i = 0; i < lb; ++i)
-		b[lb - i] = ctoint(y[i]);
+		b[lb - i] = toint(y[i]);
 
 	i = 1;
 	while (i <= la || i <= lb) {
@@ -206,10 +227,10 @@ string mul(string& s1, string& s2) {
 
 	/* 获取字符转为数字 */
 	for (i = 0; i < la; ++i)
-		a[la - i] = ctoint(x[i]);
+		a[la - i] = toint(x[i]);
 
 	for (i = 0; i < lb; ++i)
-		b[lb - i] = ctoint(y[i]);
+		b[lb - i] = toint(y[i]);
 
 	for (i = 1; i <= la; ++i) {
 		t = 0;		// 存放进位
@@ -258,6 +279,56 @@ string fac(int& n) {
 			f = mul(f, x);
 		}
 		return f;
+	}
+}
+
+
+/* 最大公约数 */
+int gcd(int& a, int& b) {
+	// 负数转正
+	a = (a > 0) ? a : -a;
+	b = (b > 0) ? b : -b;
+	while (a != b) {
+		if (a > b)
+			a -= b;
+		else
+			b -= a;
+	}
+	return a;
+}
+
+long long gcd(long long& a, long long& b) {
+	// 负数转正
+	a = (a > 0) ? a : -a;
+	b = (b > 0) ? b : -b;
+	while (a != b) {
+		if (a > b)
+			a -= b;
+		else
+			b -= a;
+	}
+	return a;
+}
+
+
+/* 最小公倍数 */
+int lcm(int& a, int& b) {
+	int minn = (a > b) ? a : b;
+	while (1) {
+		if (minn % a == 0 && minn % b == 0) {
+			return minn;
+		}
+		++minn;
+	}
+}
+
+long long lcm(long long& a, long long& b) {
+	long long minn = (a > b) ? a : b;
+	while (1) {
+		if (minn % a == 0 && minn % b == 0) {
+			return minn;
+		}
+		++minn;
 	}
 }
 
