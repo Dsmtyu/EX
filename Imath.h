@@ -24,16 +24,6 @@ int toint(char& t) {
 }
 
 
-/* 字符串转数字 */
-int toint(string& s) {
-	int i, tar = toint(s[0]), l = s.length();
-	for (i = 1; i < l; ++i) {
-		tar += i * 10 + toint(s[i]);
-	}
-	return tar;
-}
-
-
 /* 从a复制n到m去b数组 */
 void copyarry(int* a, int* b, const int& m, const int& n = 0) {
 	int i;
