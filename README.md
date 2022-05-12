@@ -4,8 +4,8 @@
 提供各种数学函数，高精度，最大公约数等
 
 #### 软件使用
-使用 Embarcadero Dev-C++6.3, TDM-GCC9.2.0
-
+使用 Embarcadero Dev-C++6.3 打开 Emath.dev  
+TDM-GCC9.2.0 编译运行 (其他开发环境亦可)
 
 #### 安装教程
 (开袋即食)
