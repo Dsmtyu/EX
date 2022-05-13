@@ -6,10 +6,11 @@
 
 using namespace std;
 
-
 /*二分查找顺序数组中的target是否存在*/
-bool bsearch(int a[], int left, int right, int target) {
-	while (left <= right) {
+bool bsearch(int a[], int left, int right, int target)
+{
+	while (left <= right)
+	{
 		int mid = (left + right) >> 1;
 		if (a[mid] > target)
 			right = mid - 1;
@@ -21,9 +22,9 @@ bool bsearch(int a[], int left, int right, int target) {
 	return false;
 }
 
-
 /*查找数组最小值*/
-int minin(int a[], int start, int end) {
+int minin(int a[], int start, int end)
+{
 	int minn = a[start];
 	for (int i = start + 1; i < end; ++i)
 		if (a[i] < minn)
@@ -31,15 +32,14 @@ int minin(int a[], int start, int end) {
 	return minn;
 }
 
-
 /*查找数组最大值*/
-int maxax(int a[], int start, int end) {
+int maxax(int a[], int start, int end)
+{
 	int maxx = a[start];
 	for (int i = start + 1; i < end; ++i)
 		if (a[i] > maxx)
 			maxx = a[i];
 	return maxx;
 }
-
 
 #endif
