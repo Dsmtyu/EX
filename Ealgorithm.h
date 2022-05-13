@@ -4,18 +4,17 @@
 #define minin minin
 #define maxax maxax
 
-#include <iostream>
 using namespace std;
 
 
 /*二分查找顺序数组中的target是否存在*/
-bool bsearch(int a[], int start, int end, int target) {
-	while (start <= end) {
-		int mid = (start + end) >> 1;
+bool bsearch(int a[], int left, int right, int target) {
+	while (left <= right) {
+		int mid = (left + right) >> 1;
 		if (a[mid] > target)
-			end = mid - 1;
+			right = mid - 1;
 		else if (a[mid] < target)
-			start = mid + 1;
+			left = mid + 1;
 		else
 			return true;
 	}
