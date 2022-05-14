@@ -4,23 +4,31 @@
 #define aver aver
 #define copyarry copyarray
 #define toint toint
+#define tochar tochar
 #define fac fac
 #define ilength ilength
+#define llength llength
 #define mul mul
 #define powh powh
 #define sub sub
 #define stoarry stoarry
 #define gcd gcd
 #define lcm lcm
-#define sizeofa sizeofa
+#define convert NumberConvert 
 
-#include <string.h>
+#include <string>
+#include <math.h>
 using namespace std;
 
 /* 字符转数字 */
 int toint(char &t)
 {
 	return t - '0';
+}
+
+char tochar(int &n)
+{
+	return n + '0';
 }
 
 /* 从a复制n到m去b数组 */
@@ -43,7 +51,7 @@ void aver(int a[], double ave, const int &m, const int &n = 0)
 	return;
 }
 
-/* 获取整数长度 */
+/* 获取整数长度(10位) */
 int ilength(int &n)
 {
 	int cnt = 0;
@@ -52,8 +60,8 @@ int ilength(int &n)
 	return cnt;
 }
 
-/* 获取长整型长度 */
-long long ilength(long long &n)
+/* 获取长整型长度(19位) */
+int llength(long long &n)
 {
 	int cnt = 0;
 	while (n != 0)
@@ -75,20 +83,11 @@ string sub(string &s1, string &s2);
 string add(string &x, string &y)
 {
 	string tar;
-	int i, la = x.length(), lb = y.length(), m = max(la, lb), a[la + 5], b[lb + 5], c[m + 10], lc = 1, n = 0;
-	char ch;
-	bool f = false; // 负数
-	/* 初始化空 */
-	memset(a, 0, sizeof(a));
-	memset(b, 0, sizeof(b));
-	memset(c, 0, sizeof(c));
+	int i, la = x.length(), lb = y.length(), m = max(la, lb), a[la + 5] = {0}, b[lb + 5] = {0}, c[m + 10] = {0}, lc = 1, n = 0, f = 0;
 
 	/* 负数 */
 	if (x[0] == '-' && y[0] == '-')
-	{
-		++n;
-		f = true;
-	}
+		++n, f = 1;
 	else if (x[0] == '-' || y[0] == '-')
 	{
 		string s1 = x, s2 = y;
@@ -123,10 +122,7 @@ string add(string &x, string &y)
 
 	/* 将数字数组转为字符串 */
 	for (i = lc; i > 0; --i)
-	{
-		ch = c[i] + '0';
-		tar = tar + ch;
-	}
+		tar = tar + tochar(c[i]);
 	return tar;
 }
 
@@ -134,13 +130,7 @@ string add(string &x, string &y)
 string sub(string &s1, string &s2)
 {
 	string x = s1, y = s2, tar;
-	int i, la = x.length(), lb = y.length(), m = max(la, lb), a[la + 5], b[lb + 5], c[m + 10], lc = 1;
-	char ch;
-	bool f = false;
-	/* 初始化空 */
-	memset(a, 0, sizeof(a));
-	memset(b, 0, sizeof(b));
-	memset(c, 0, sizeof(c));
+	int i, la = x.length(), lb = y.length(), m = max(la, lb), a[la + 5] = {0}, b[lb + 5] = {0}, c[m + 10] = {0}, lc = 1, f = 0;
 
 	/* 负数 */
 	if (x[0] == '-' && y[0] == '-')
@@ -191,10 +181,7 @@ string sub(string &s1, string &s2)
 
 	/* 将数字数组转为字符串 */
 	for (i = lc; i > 0; --i)
-	{
-		ch = c[i] + '0';
-		tar = tar + ch;
-	}
+		tar = tar + tochar(c[i]);
 	return tar;
 }
 
@@ -204,13 +191,7 @@ string mul(string &s1, string &s2)
 	string x = s1, y = s2, tar;
 	int la = x.length(), lb = y.length();
 	const int m = max(la, lb);
-	int i, j, a[m + 10], b[m + 10], c[la * lb + 10], lc, t;
-	char ch;
-	bool f = false;
-	/* 初始化空 */
-	memset(a, 0, sizeof(a));
-	memset(b, 0, sizeof(b));
-	memset(c, 0, sizeof(c));
+	int i, j, a[m + 10] = {0}, b[m + 10] = {0}, c[la * lb + 10] = {0}, lc, t, f = 0;
 
 	/* 为0？(剪枝) */
 	if (x[0] == '0' || y[0] == '0')
@@ -228,9 +209,7 @@ string mul(string &s1, string &s2)
 		s2.erase(s2.begin());
 	}
 	if (x[0] == '-' && y[0] == '-')
-	{
 		f = false;
-	}
 
 	/* 获取字符转为数字 */
 	for (i = 0; i < la; ++i)
@@ -258,10 +237,7 @@ string mul(string &s1, string &s2)
 		tar = tar + '-'; // 负数
 	/* 将数字数组转为字符串 */
 	for (i = lc; i > 0; --i)
-	{
-		ch = c[i] + '0';
-		tar = tar + ch;
-	}
+		tar = tar + tochar(c[i]);
 	return tar;
 }
 
@@ -301,12 +277,10 @@ int gcd(int &a, int &b)
 	a = (a > 0) ? a : -a;
 	b = (b > 0) ? b : -b;
 	while (a != b)
-	{
 		if (a > b)
 			a -= b;
 		else
 			b -= a;
-	}
 	return a;
 }
 
@@ -316,12 +290,10 @@ long long gcd(long long &a, long long &b)
 	a = (a > 0) ? a : -a;
 	b = (b > 0) ? b : -b;
 	while (a != b)
-	{
 		if (a > b)
 			a -= b;
 		else
 			b -= a;
-	}
 	return a;
 }
 
@@ -332,9 +304,7 @@ int lcm(int &a, int &b)
 	while (1)
 	{
 		if (minn % a == 0 && minn % b == 0)
-		{
 			return minn;
-		}
 		++minn;
 	}
 }
@@ -345,11 +315,22 @@ long long lcm(long long &a, long long &b)
 	while (1)
 	{
 		if (minn % a == 0 && minn % b == 0)
-		{
 			return minn;
-		}
 		++minn;
 	}
+}
+
+/* 进制转换 */
+int NumberConvert(int n, int sbase, int dbase)
+{
+	int dbaseNum = 0, i = 0;
+	while (n != 0)
+	{
+		dbaseNum += (n % dbase) * pow(sbase, i);
+		n /= dbase;
+		++i;
+	}
+	return dbaseNum;
 }
 
 #endif

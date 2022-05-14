@@ -26,6 +26,11 @@ TDM-GCC 9.2.0 编译运行 (其他开发环境亦可)
 4.  新建 Pull Request
 
 ### 更新历史
+### **v1.0.2.45**
+* Emath.h
+```cpp
+1. NumberConvert(int n, int sbase, int dbase) 可直接使用convert()，从sbase进制n转换为dbase进制
+```
 
 ### **v1.0.2.37**
 * Ealgorithm.h (使用VScode重构)
