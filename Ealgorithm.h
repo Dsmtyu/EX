@@ -1,8 +1,5 @@
 #ifndef __EALGORITHM_H__
 #define __EALGORITHM_H__
-#define bsearch bsearch
-#define minin minin
-#define maxax maxax
 
 using namespace std;
 

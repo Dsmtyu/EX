@@ -1,19 +1,5 @@
 #ifndef __EMATH_H__
 #define __EMATH_H__
-#define add add
-#define aver aver
-#define copyarry copyarray
-#define toint toint
-#define tochar tochar
-#define fac fac
-#define ilength ilength
-#define llength llength
-#define mul mul
-#define powh powh
-#define sub sub
-#define stoarry stoarry
-#define gcd gcd
-#define lcm lcm
 #define convert NumberConvert 
 
 #include <string>
